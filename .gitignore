@@ -1,0 +1,30 @@
+# winutil
+System.Management.Automation.dll
+Microsoft.PowerShell.ConsoleHost.dll
+
+winutil.exe.config
+winutil.ps1
+binary/
+testResults.xml
+
+# general software/os specific
+desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+
+.vscode/
+.idea/
+
+# Berry IT WinForge development backups
+development-backups/
+*.backup
+*.working-backup
+*.before-*
+*.taskbar-backup
+
+# Additional development backup suffixes
+*.ps1.*-backup
+*.xaml.*-backup
+*.ps1.*-backup-*
