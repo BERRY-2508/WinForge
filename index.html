@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BERRY IT WinForge Utility — Windows maintenance, configuration and optimisation tools.">
+  <meta name="author" content="BERRY IT">
+  <title>BERRY IT | WinForge Utility</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Orbitron', sans-serif; background: linear-gradient(135deg, #ffffff, #f4f4f4); color: #000; line-height: 1.6; min-height: 100vh; }
+    header { background: linear-gradient(to right, #444, #111); color: #fff; padding: 1em 2em; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,.3); }
+    header img { height: 50px; max-width: 220px; object-fit: contain; }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; }
+    nav a { color: #fff; text-decoration: none; font-weight: 700; transition: color .3s ease; }
+    nav a:hover, nav a:focus-visible { color: #ff0000; }
+    .hero { background: url('https://images.unsplash.com/photo-1555949963-aa79dcee981e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #fff; padding: 6em 2em; text-align: center; position: relative; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.5); }
+    .hero-content { position: relative; z-index: 1; max-width: 950px; margin: auto; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .5em; text-shadow: 2px 2px 8px rgba(0,0,0,.8); }
+    .hero .tagline { font-size: clamp(.9rem, 2vw, 1.2rem); font-weight: 700; color: #fff; padding: .75em 1.5em; border-radius: 10px; background: linear-gradient(135deg, #ff3c3c, #d00000); box-shadow: 0 4px 12px rgba(0,0,0,.6); border: 2px solid #000; display: inline-block; text-shadow: 1px 1px 2px #000; }
+    .section { padding: 4em 2em; max-width: 1000px; margin: auto; }
+    .section h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1em; color: #ff0000; }
+    .section p { margin-bottom: 1em; }
+    .section ul { list-style-type: square; padding-left: 22px; }
+    .section li { margin-bottom: 1em; }
+    .actions { display: flex; flex-wrap: wrap; gap: 1em; margin-top: 1.6em; }
+    .button { display: inline-block; padding: .8em 1.3em; border-radius: 8px; text-decoration: none; font-weight: 700; border: 2px solid #111; background: #111; color: #fff; transition: background .2s, transform .2s; }
+    .button:hover { background: #d00000; transform: translateY(-2px); }
+    .button.secondary { background: transparent; color: #111; }
+    .button.secondary:hover { color: #fff; background: #444; }
+    .notice { margin-top: 1.5em; background: #f0f0f0; padding: 1.25em; border-left: 4px solid #ff3030; border-radius: 4px; }
+    a { color: #d00000; }
+    footer { background: #000; color: #fff; text-align: center; padding: 1.5em; font-size: .9em; }
+    footer a { color: #ff3030; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .fine-print { font-family: Arial, sans-serif; font-size: .68rem; color: #aaa; margin-top: .65rem; }
+    footer .fine-print a { color: #bbb; }
+    @media (max-width: 640px) { header { justify-content: center; text-align: center; padding: 1.2em; } nav { justify-content: center; gap: 12px; font-size: .85rem; } .hero { padding: 4em 1.2em; } .section { padding: 3em 1.3em; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="https://berry.it.com/" aria-label="BERRY IT main website"><img src="BERRY-IT.png" alt="BERRY IT Logo"></a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#get-started">Get Started</a>
+      <a href="https://berry.it.com/">BERRY IT</a>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>BERRY IT WinForge Utility</h1>
+        <p class="tagline">Windows optimisation, configuration and maintenance</p>
+      </div>
+    </section>
+    <section id="about" class="section">
+      <h2>About WinForge</h2>
+      <p>WinForge is a BERRY IT-branded Windows utility designed to bring common configuration, maintenance and system-management tools together in one interface.</p>
+    </section>
+    <section id="features" class="section">
+      <h2>Features</h2>
+      <ul>
+        <li><strong>Application management:</strong> Access tools to install and manage Windows applications.</li>
+        <li><strong>System tweaks:</strong> Apply and manage supported Windows settings.</li>
+        <li><strong>Maintenance and fixes:</strong> Access Windows repair and troubleshooting utilities.</li>
+        <li><strong>Configuration:</strong> Work with supported presets and configuration options.</li>
+      </ul>
+    </section>
+    <section id="get-started" class="section">
+      <h2>Get Started</h2>
+      <p>WinForge is currently under development. Online launching will be available once testing is complete.</p>
+      <div class="actions">
+        <a class="button secondary" href="https://berry.it.com/">Visit BERRY IT</a>
+      </div>
+      <div class="notice">The online PowerShell launch command is not yet available. The <strong>/win</strong> endpoint will be published after testing.</div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; <span id="year">2026</span> BERRY IT | <a href="https://berry.it.com/">BERRY.IT.COM</a></p>
+    <p class="fine-print">Source code, licence and project information: <a href="https://github.com/BERRY-2508/WinForge">GitHub repository</a>.</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
