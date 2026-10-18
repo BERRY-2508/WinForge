@@ -2,7 +2,7 @@
 
 **Windows optimisation, configuration and maintenance — by Berry IT.**
 
-WinForge Utility is a Windows maintenance and configuration tool developed by **Berry IT**, based on the open-source [Chris Titus Tech Windows Utility (WinUtil)](https://github.com/ChrisTitusTech/winutil).
+WinForge Utility is a Windows maintenance and configuration tool
 
 WinForge brings common Windows administration tasks together in one graphical interface, with Berry IT branding and a streamlined startup experience.
 
