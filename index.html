@@ -1,89 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BERRY IT WinForge Utility — Windows maintenance, configuration and optimisation tools.">
-  <meta name="author" content="BERRY IT">
-  <title>BERRY IT | WinForge Utility</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Orbitron', sans-serif; background: linear-gradient(135deg, #ffffff, #f4f4f4); color: #000; line-height: 1.6; min-height: 100vh; }
-    header { background: linear-gradient(to right, #444, #111); color: #fff; padding: 1em 2em; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,.3); }
-    header img { height: 50px; max-width: 220px; object-fit: contain; }
-    nav { display: flex; flex-wrap: wrap; gap: 20px; }
-    nav a { color: #fff; text-decoration: none; font-weight: 700; transition: color .3s ease; }
-    nav a:hover, nav a:focus-visible { color: #ff0000; }
-    .hero { background: url('https://images.unsplash.com/photo-1555949963-aa79dcee981e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: #fff; padding: 6em 2em; text-align: center; position: relative; }
-    .hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.5); }
-    .hero-content { position: relative; z-index: 1; max-width: 950px; margin: auto; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .5em; text-shadow: 2px 2px 8px rgba(0,0,0,.8); }
-    .hero .tagline { font-size: clamp(.9rem, 2vw, 1.2rem); font-weight: 700; color: #fff; padding: .75em 1.5em; border-radius: 10px; background: linear-gradient(135deg, #ff3c3c, #d00000); box-shadow: 0 4px 12px rgba(0,0,0,.6); border: 2px solid #000; display: inline-block; text-shadow: 1px 1px 2px #000; }
-    .section { padding: 4em 2em; max-width: 1000px; margin: auto; }
-    .section h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1em; color: #ff0000; }
-    .section p { margin-bottom: 1em; }
-    .section ul { list-style-type: square; padding-left: 22px; }
-    .section li { margin-bottom: 1em; }
-    .actions { display: flex; flex-wrap: wrap; gap: 1em; margin-top: 1.6em; }
-    .button { display: inline-block; padding: .8em 1.3em; border-radius: 8px; text-decoration: none; font-weight: 700; border: 2px solid #111; background: #111; color: #fff; transition: background .2s, transform .2s; }
-    .button:hover { background: #d00000; transform: translateY(-2px); }
-    .button.secondary { background: transparent; color: #111; }
-    .button.secondary:hover { color: #fff; background: #444; }
-    .notice { margin-top: 1.5em; background: #f0f0f0; padding: 1.25em; border-left: 4px solid #ff3030; border-radius: 4px; }
-    a { color: #d00000; }
-    footer { background: #000; color: #fff; text-align: center; padding: 1.5em; font-size: .9em; }
-    footer a { color: #ff3030; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer .fine-print { font-family: Arial, sans-serif; font-size: .68rem; color: #aaa; margin-top: .65rem; }
-    footer .fine-print a { color: #bbb; }
-    @media (max-width: 640px) { header { justify-content: center; text-align: center; padding: 1.2em; } nav { justify-content: center; gap: 12px; font-size: .85rem; } .hero { padding: 4em 1.2em; } .section { padding: 3em 1.3em; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0e">
+<meta name="description" content="Explore BERRY IT WinForge — Windows optimisation, configuration and maintenance tools.">
+<title>BERRY IT | WinForge Utility</title>
+<link rel="icon" type="image/png" href="BERRY-IT.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0b0b0e;--surface:#141417;--panel:#1b1b20;--text:#f4f4f4;--muted:#acaab2;--red:#ff3c3c;--deep:#d00000;--line:#303036}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(11,11,14,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:83px;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:13px;min-width:0}.brand img{height:52px;width:auto;max-width:170px;object-fit:contain}.brand span{font:700 .88rem Orbitron,sans-serif;letter-spacing:.09em;white-space:nowrap}.brand span b{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:30px}.nav-links a{font-size:.88rem;font-weight:600;color:#d4d2d8;transition:color .2s}.nav-links a:hover{color:var(--red)}.nav-links .nav-cta{padding:10px 17px;border:1px solid #9e3035;border-radius:9px;color:#fff;background:rgba(255,60,60,.1)}
+.menu-button{display:none;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:white;padding:8px 12px;font-size:1.2rem;cursor:pointer}
+.hero{position:relative;overflow:hidden;min-height:610px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 83% 28%,rgba(208,0,0,.24),transparent 42%),radial-gradient(ellipse at 65% 90%,rgba(255,60,60,.07),transparent 45%),linear-gradient(120deg,#111116,#0b0b0e 70%);pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;opacity:.15;background-image:linear-gradient(#666 1px,transparent 1px),linear-gradient(90deg,#666 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(90deg,transparent 25%,black 100%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;padding:95px 0 105px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font:600 .75rem Orbitron,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#ff8585;margin-bottom:24px}
+.eyebrow:before{content:"";height:8px;width:8px;border-radius:50%;background:var(--red);box-shadow:0 0 16px var(--red)}
+h1,h2,h3{font-family:Orbitron,Arial,sans-serif;line-height:1.25;margin:0}
+h1{max-width:990px;font-size:clamp(2.4rem,5.5vw,5rem);letter-spacing:-.045em;font-weight:800}
+h1 em{font-style:normal;color:var(--red)}
+.hero-copy{max-width:670px;color:#bdbbc3;font-size:clamp(1rem,1.6vw,1.16rem);margin:27px 0 36px}
+.actions{display:flex;flex-wrap:wrap;gap:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:10px;font-weight:700;font-size:.91rem;transition:transform .2s,background .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}.btn-primary{background:linear-gradient(135deg,var(--red),var(--deep));color:white;box-shadow:0 8px 28px #d0000030;border:0}.btn-secondary{border:1px solid #44434b;background:#1b1b20;color:white}
+.strip{border-bottom:1px solid var(--line);background:#111114}.strip-inner{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:21px 0;flex-wrap:wrap}.strip strong{font:600 .74rem Orbitron,sans-serif;letter-spacing:.08em;color:#dad8de}.strip span{font-size:.85rem;color:var(--muted)}
+.section{padding:100px 0}.section-alt{background:#101013;border-top:1px solid #232328;border-bottom:1px solid #232328}
+.section-head{max-width:750px;margin-bottom:38px}.kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font:700 .72rem Orbitron,sans-serif;margin-bottom:15px}
+h2{font-size:clamp(1.8rem,3.5vw,2.9rem);letter-spacing:-.04em}.section-head p,.about-copy p,.utility-content p{color:var(--muted);font-size:1rem}.section-head p{margin:17px 0 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.service{border:1px solid var(--line);border-radius:16px;background:linear-gradient(155deg,#1a1a1f,#131316);padding:30px;transition:border-color .2s,transform .2s}
+.service:hover{border-color:#a93940;transform:translateY(-4px)}.service-icon{display:grid;place-items:center;width:49px;height:49px;border:1px solid #713137;border-radius:13px;background:#ff3c3c12;color:var(--red);font-size:1.4rem;margin-bottom:23px}
+h3{font-size:1.04rem;letter-spacing:-.02em}.service p{font-size:.91rem;color:var(--muted);margin:13px 0 0}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:75px}.about-copy p{margin:20px 0}
+.about-panel{border:1px solid #393039;border-radius:20px;background:radial-gradient(circle at 85% 12%,#5b181f 0,transparent 49%),linear-gradient(140deg,#202025,#111114);padding:42px;min-height:270px;display:flex;flex-direction:column;justify-content:center}.about-panel .big{font:800 clamp(2rem,4vw,3rem) Orbitron,sans-serif;line-height:1.25;letter-spacing:-.045em}.about-panel .big span{color:var(--red)}.about-panel p{color:var(--muted);margin:18px 0 0}
+.utility-panel{border:1px solid #4d2b30;border-radius:20px;background:linear-gradient(115deg,#1c1519,#151518);padding:clamp(25px,5vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.utility-content h2{margin-top:12px}.terminal{min-width:0;background:#08090b;border:1px solid #3c3c43;border-radius:13px;overflow:hidden;box-shadow:0 18px 45px #0005}.terminal-head{padding:12px 17px;border-bottom:1px solid #26262a;background:#17171b;color:#aaa;font:500 .76rem Inter,sans-serif}.dots{color:#ff6767;letter-spacing:.16em;margin-right:9px}
+.terminal-body{padding:22px}.terminal code{display:block;overflow-wrap:anywhere;color:#b9f4cd;font:500 .84rem/1.8 ui-monospace,SFMono-Regular,Consolas,monospace}.terminal code:before{content:"> ";color:var(--red)}.copy{margin-top:19px;border:1px solid #505058;border-radius:8px;background:#24242a;color:white;padding:9px 14px;font-weight:600;cursor:pointer}.copy:hover{background:#34343b}.terminal small{display:block;margin-top:14px;color:#96939b;font-size:.76rem}
+footer{border-top:1px solid var(--line);background:#09090b;padding:32px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}footer p{margin:0;color:#aaa8b1;font-size:.83rem}footer a{color:var(--red)}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.utility-panel,.about-layout{grid-template-columns:1fr;gap:30px}}
+@media(max-width:650px){.wrap{width:min(100% - 32px,1160px)}.nav{min-height:74px}.brand img{height:43px}.brand span{font-size:.72rem}.menu-button{display:block}.nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:#111115;padding:20px 16px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:16px}.nav-links.open{display:flex}.hero{min-height:530px}.hero-inner{padding:75px 0}.section{padding:72px 0}.grid{grid-template-columns:1fr}.service{padding:25px}.about-panel{padding:29px}.strip-inner{align-items:flex-start;flex-direction:column;gap:5px}.footer-inner{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
 </head>
 <body>
-  <header>
-    <a href="https://berry.it.com/" aria-label="BERRY IT main website"><img src="BERRY-IT.png" alt="BERRY IT Logo"></a>
-    <nav aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#get-started">Get Started</a>
-      <a href="https://berry.it.com/">BERRY IT</a>
-    </nav>
-  </header>
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1>BERRY IT WinForge Utility</h1>
-        <p class="tagline">Windows optimisation, configuration and maintenance</p>
-      </div>
-    </section>
-    <section id="about" class="section">
-      <h2>About WinForge</h2>
-      <p>WinForge is a BERRY IT-branded Windows utility designed to bring common configuration, maintenance and system-management tools together in one interface.</p>
-    </section>
-    <section id="features" class="section">
-      <h2>Features</h2>
-      <ul>
-        <li><strong>Application management:</strong> Access tools to install and manage Windows applications.</li>
-        <li><strong>System tweaks:</strong> Apply and manage supported Windows settings.</li>
-        <li><strong>Maintenance and fixes:</strong> Access Windows repair and troubleshooting utilities.</li>
-        <li><strong>Configuration:</strong> Work with supported presets and configuration options.</li>
-      </ul>
-    </section>
-    <section id="get-started" class="section">
-      <h2>Get Started</h2>
-      <p>WinForge is currently under development. Online launching will be available once testing is complete.</p>
-      <div class="actions">
-        <a class="button secondary" href="https://berry.it.com/">Visit BERRY IT</a>
-      </div>
-      <div class="notice">The online PowerShell launch command is not yet available. The <strong>/win</strong> endpoint will be published after testing.</div>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; <span id="year">2026</span> BERRY IT | <a href="https://berry.it.com/">BERRY.IT.COM</a></p>
-    <p class="fine-print">Source code, licence and project information: <a href="https://github.com/BERRY-2508/WinForge">GitHub repository</a>.</p>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+<header class="site-header"><div class="wrap nav"><a class="brand" href="https://berry.it.com/" aria-label="BERRY IT home"><img src="BERRY-IT.png" alt="BERRY IT logo"><span>BERRY <b>IT</b></span></a><button class="menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button><nav class="nav-links" id="nav-links" aria-label="Main navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#features">Features</a><a class="nav-cta" href="#get-started">Get Started ↗</a><a href="https://berry.it.com/preview/#utilities">BERRY IT Utilities</a></nav></div></header>
+<main>
+<section id="home" class="hero"><div class="wrap hero-inner"><div class="eyebrow">BERRY IT Tools / Windows configuration and maintenance</div><h1>Take control of Windows.<br><em>Forge your setup.</em></h1><p class="hero-copy">A BERRY IT-branded Windows utility that brings configuration, application management and maintenance tools together in one place.</p><div class="actions"><a class="btn btn-primary" href="#get-started">Get started ↗</a><a class="btn btn-secondary" href="#features">Explore features →</a></div></div></section>
+<div class="strip"><div class="wrap strip-inner"><strong>THE RIPE CHOICE FOR YOUR IT SOLUTIONS</strong><span>BERRY IT · WinForge Utility</span></div></div>
+<section class="section" id="features"><div class="wrap"><div class="section-head"><div class="kicker">Features</div><h2>Windows tools in one place.</h2><p>WinForge is a BERRY IT-branded Windows utility for bringing common configuration, optimisation and troubleshooting tasks together in one interface.</p></div><div class="grid"><article class="service"><div class="service-icon" aria-hidden="true">▣</div><h3>Application management</h3><p>Access tools for installing and managing Windows applications.</p></article>
+<article class="service"><div class="service-icon" aria-hidden="true">⚙</div><h3>System tweaks</h3><p>Manage supported Windows settings and configurations.</p></article>
+<article class="service"><div class="service-icon" aria-hidden="true">✦</div><h3>Maintenance and fixes</h3><p>Find Windows troubleshooting, repair and maintenance tools.</p></article>
+<article class="service"><div class="service-icon" aria-hidden="true">⌘</div><h3>Configuration</h3><p>Use available presets and configuration options for your system.</p></article></div></div></section>
+<section class="section section-alt" id="about"><div class="wrap about-layout"><div class="about-copy"><div class="kicker">About WinForge Utility</div><h2>Simpler tools. Better control.</h2><p>WinForge is a BERRY IT-branded Windows utility for bringing common configuration, optimisation and troubleshooting tasks together in one interface.</p><p>Explore application management, system tweaks, maintenance and supported Windows configuration options.</p></div><div class="about-panel"><div class="big">Configure.<br><span>Optimise.</span></div><p>BERRY IT WinForge — Windows utility.</p></div></div></section>
+<section class="section" id="get-started"><div class="wrap"><div class="utility-panel"><div class="utility-content"><div class="kicker">Get started</div><h2>Launch WinForge</h2><p>Run from an elevated Windows PowerShell window only after confirming the /win endpoint is serving the intended script.</p><p>WinForge is under development. The /win launch endpoint may not be available yet; do not run the command unless you have verified it serves the expected PowerShell script.</p><a class="btn btn-secondary" href="https://berry.it.com/preview/#utilities">Back to BERRY IT Utilities ↗</a></div><div class="terminal"><div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>PowerShell · Administrator</div><div class="terminal-body"><code id="command">iwr -useb https://winforge.berry.it.com/win | iex</code><button class="copy" type="button" id="copy-command">Copy command</button><small>Development status: verify that the launcher URL returns PowerShell code before attempting to execute it.</small></div></div></div></div></section>
+</main>
+<footer><div class="wrap footer-inner"><p>© <span id="year">2026</span> BERRY IT. All rights reserved.</p><p>The ripe choice for your IT solutions. &nbsp; <a href="https://berry.it.com/">BERRY IT ↗</a></p></div></footer>
+<script>
+const menuButton=document.getElementById('menu-button'),navLinks=document.getElementById('nav-links');
+menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('copy-command').addEventListener('click',async()=>{const button=document.getElementById('copy-command');try{await navigator.clipboard.writeText(document.getElementById('command').textContent);button.textContent='Copied!';setTimeout(()=>button.textContent='Copy command',1800)}catch(e){button.textContent='Select command to copy'}});
+</script>
+</body></html>
