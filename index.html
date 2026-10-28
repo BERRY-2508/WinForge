@@ -59,6 +59,22 @@ footer{border-top:1px solid var(--line);background:#09090b;padding:32px 0}.foote
 .hero .hero-inner:after{content:"";position:absolute;right:-22px;top:50%;transform:translateY(-50%);width:clamp(130px,20vw,255px);height:clamp(160px,23vw,288px);background:url("https://berry.it.com/berry-it-icon.webp") center/contain no-repeat;opacity:.20;filter:drop-shadow(0 0 30px #cf003a);pointer-events:none}
 .hero .hero-inner>*{position:relative;z-index:1}.eyebrow,.kicker{color:#ff5969}.btn-primary{background:linear-gradient(135deg,#ff263d,#c80023)}
 @media(max-width:650px){.brand img{height:49px;width:min(260px,68vw)}.hero .hero-inner:after{right:0;opacity:.10}}
+
+/* Full-width approved BERRY IT banner above navigation */
+.site-header{position:relative;background:#0b0b0e}
+.site-header .nav{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;min-height:0}
+.site-header .brand{display:flex;width:100%;justify-content:center;align-items:center;padding:12px 8px 14px;min-height:170px}
+.site-header .brand img{display:block;width:min(760px,100%);height:auto;max-width:100%;max-height:235px;object-fit:contain;object-position:center;mix-blend-mode:screen}
+.site-header .nav-links{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;width:100%;gap:30px;padding:13px 0 15px;border-top:1px solid #362128}
+.site-header .menu-button{display:none}
+@media(max-width:650px){
+ .site-header .nav{position:relative;min-height:0}
+ .site-header .brand{min-height:110px;padding:8px 0 12px}
+ .site-header .brand img{width:min(450px,100%);height:auto;max-height:146px}
+ .site-header .menu-button{display:block;position:relative;align-self:flex-end;margin:0 0 10px}
+ .site-header .nav-links{display:none;position:absolute;top:100%;left:-16px;right:-16px;width:auto;background:#111115;flex-direction:column;align-items:stretch;gap:16px;padding:20px 16px 24px;border-bottom:1px solid var(--line);z-index:20}
+ .site-header .nav-links.open{display:flex}
+}
 </style>
 </head>
 <body>
