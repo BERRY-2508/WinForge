@@ -1,0 +1,40 @@
+name: Build WinForge PowerShell launcher
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Compile.ps1"
+      - "LICENSE"
+      - "scripts/**"
+      - "functions/**"
+      - "config/**"
+      - "xaml/**"
+      - "tools/**"
+      - ".github/workflows/build-winforge.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Compile WinForge
+        shell: pwsh
+        run: ./Compile.ps1
+      - name: Publish compiled launcher script
+        shell: pwsh
+        run: |
+          if (!(Test-Path -LiteralPath 'winutil.ps1')) { throw 'Compilation did not produce winutil.ps1' }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f winutil.ps1
+          if (git diff --cached --quiet) { Write-Host 'Compiled script unchanged'; exit 0 }
+          git commit -m "Build WinForge standalone PowerShell script [skip ci]"
+          git push origin HEAD:main
