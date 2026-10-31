@@ -27,7 +27,7 @@
     Runspace Author: @DeveloperDurp
     GitHub         : https://github.com/BERRY-2508/WinForge-Utility
     Based On       : Chris Titus Tech WinUtil
-    Version        : 26.10.28
+    Version        : 26.10.31
 #>
 
 param (
@@ -247,7 +247,7 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
-$sync.version = "26.10.28"
+$sync.version = "26.10.31"
 $sync.IsLocalCompile = "false" -eq "true"
 $sync.configs = @{}
 $sync.WinForgeUIReady = $false
@@ -14972,7 +14972,7 @@ $sync.configs.themes = @'
     "AppEntryWidth": "220",
     "AppEntryFontSize": "13.2",
     "AppEntryIconSize": "28",
-    "AppEntryMargin": "3",
+    "AppEntryMargin": "6",
     "AppEntryBorderThickness": "1",
     "CustomDialogFontSize": "12",
     "CustomDialogFontSizeHeader": "14",
@@ -14988,11 +14988,11 @@ $sync.configs.themes = @'
     "HeaderFontFamily": "Orbitron",
     "CheckBoxBulletDecoratorSize": "14",
     "CheckBoxMargin": "15,0,0,2",
-    "TabContentMargin": "5",
+    "TabContentMargin": "12",
     "TabButtonFontSize": "14",
-    "TabButtonWidth": "110",
-    "TabButtonHeight": "26",
-    "TabRowHeightInPixels": "50",
+    "TabButtonWidth": "116",
+    "TabButtonHeight": "42",
+    "TabRowHeightInPixels": "68",
     "ToolTipWidth": "300",
     "IconFontSize": "14",
     "IconButtonSize": "35",
@@ -15002,17 +15002,17 @@ $sync.configs.themes = @'
     "ButtonFontSize": "12",
     "ButtonFontFamily": "Orbitron",
     "ButtonWidth": "200",
-    "ButtonHeight": "25",
+    "ButtonHeight": "34",
     "ConfigTabButtonFontSize": "14",
     "ConfigUpdateButtonFontSize": "14",
     "SearchBarWidth": "200",
-    "SearchBarHeight": "26",
+    "SearchBarHeight": "34",
     "SearchBarTextBoxFontSize": "12",
     "SearchBarClearButtonFontSize": "14",
     "CheckboxMouseOverColor": "#999999",
     "ButtonBorderThickness": "1",
-    "ButtonMargin": "1",
-    "ButtonCornerRadius": "2"
+    "ButtonMargin": "3",
+    "ButtonCornerRadius": "8"
   },
   "Light": {
     "AppInstallUnselectedColor": "#F7F7F7",
@@ -15061,11 +15061,11 @@ $sync.configs.themes = @'
     "AppInstallHighlightedColor": "#3C3C3C",
     "AppInstallSelectedColor": "#4C4C4C",
     "ComboBoxForegroundColor": "#F7F7F7",
-    "ComboBoxBackgroundColor": "#1E3747",
+    "ComboBoxBackgroundColor": "#24242B",
     "LabelboxForegroundColor": "#FF3C3C",
     "MainForegroundColor": "#F4F4F4",
-    "MainBackgroundColor": "#111111",
-    "LabelBackgroundColor": "#111111",
+    "MainBackgroundColor": "#141417",
+    "LabelBackgroundColor": "#141417",
     "LinkForegroundColor": "#FF3C3C",
     "LinkHoverForegroundColor": "#FF0000",
     "ScrollBarBackgroundColor": "#2E3135",
@@ -15075,28 +15075,29 @@ $sync.configs.themes = @'
     "ProgressBarErrorColor": "#FF6B6B",
     "ProgressBarWarningColor": "#FFC83D",
     "ProgressBarBackgroundColor": "Transparent",
-    "ButtonInstallBackgroundColor": "#222222",
-    "ButtonTweaksBackgroundColor": "#333333",
-    "ButtonConfigBackgroundColor": "#444444",
-    "ButtonUpdatesBackgroundColor": "#555555",
-    "ButtonWin11ISOBackgroundColor": "#666666",
+    "ButtonInstallBackgroundColor": "#202025",
+    "ButtonTweaksBackgroundColor": "#202025",
+    "ButtonConfigBackgroundColor": "#202025",
+    "ButtonUpdatesBackgroundColor": "#202025",
+    "ButtonWin11ISOBackgroundColor": "#202025",
     "ButtonAppxBackgroundColor": "#777777",
-    "ButtonInstallForegroundColor": "#F7F7F7",
-    "ButtonTweaksForegroundColor": "#F7F7F7",
-    "ButtonConfigForegroundColor": "#F7F7F7",
-    "ButtonUpdatesForegroundColor": "#F7F7F7",
-    "ButtonWin11ISOForegroundColor": "#F7F7F7",
+    "ButtonInstallForegroundColor": "#F4F4F4",
+    "ButtonTweaksForegroundColor": "#F4F4F4",
+    "ButtonConfigForegroundColor": "#F4F4F4",
+    "ButtonUpdatesForegroundColor": "#F4F4F4",
+    "ButtonWin11ISOForegroundColor": "#F4F4F4",
     "ButtonAppxForegroundColor": "#F7F7F7",
-    "ButtonBackgroundColor": "#222222",
+    "ButtonBackgroundColor": "#24242B",
     "ButtonBackgroundPressedColor": "#F7F7F7",
-    "ButtonBackgroundMouseoverColor": "#444444",
-    "ButtonBackgroundSelectedColor": "#D00000",
+    "ButtonBackgroundMouseoverColor": "#343039",
+    "ButtonBackgroundSelectedColor": "#56212D",
     "ButtonForegroundColor": "#F7F7F7",
     "ToggleButtonOnColor": "#FF0000",
     "ToggleButtonOffColor": "#707070",
     "ToolTipBackgroundColor": "#2F373D",
-    "BorderColor": "#444444",
-    "BorderOpacity": "0.2"
+    "BorderColor": "#45343A",
+    "BorderOpacity": "0.2",
+    "GroupBorderBackgroundColor": "#1B1B21"
   }
 }
 '@ | ConvertFrom-Json
@@ -17137,51 +17138,37 @@ $inputXML = @'
             <Setter Property="Background" Value="{DynamicResource LabelBackgroundColor}"/>
         </Style>
         <Style x:Key="TabToggleButton" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Margin" Value="{DynamicResource ButtonMargin}"/>
-            <Setter Property="Content" Value=""/>
-            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
+            <Setter Property="Margin" Value="3,0,3,0"/>
+            <Setter Property="Padding" Value="14,10"/>
+            <Setter Property="MinHeight" Value="42"/>
+            <Setter Property="FontFamily" Value="Orbitron"/>
+            <Setter Property="Foreground" Value="#F4F4F4"/>
+            <Setter Property="Background" Value="#202025"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToggleButton">
-                        <Border Name="ButtonGlow"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{DynamicResource ButtonForegroundColor}"
-                                BorderThickness="{DynamicResource ButtonBorderThickness}"
-                                CornerRadius="{DynamicResource ButtonCornerRadius}">
-                            <Border Name="BackgroundBorder"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{DynamicResource ButtonBackgroundColor}"
-                                BorderThickness="{DynamicResource ButtonBorderThickness}"
-                                CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <ContentPresenter
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Margin="10,2,10,2"/>
-                            </Border>
+                        <Border x:Name="NavPill" Background="{TemplateBinding Background}" CornerRadius="9"
+                                BorderBrush="#383840" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                            <Grid>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Border x:Name="ActiveMarker" Height="3" Background="#FF3C3C" CornerRadius="2"
+                                        VerticalAlignment="Bottom" Margin="8,0,8,-10" Visibility="Collapsed"/>
+                            </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource ButtonBackgroundMouseoverColor}"/>
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect Opacity="1" ShadowDepth="5" Color="{DynamicResource CButtonBackgroundMouseoverColor}" Direction="-100" BlurRadius="15"/>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="Panel.ZIndex" Value="2000"/>
+                                <Setter TargetName="NavPill" Property="Background" Value="#353039"/>
+                                <Setter TargetName="NavPill" Property="BorderBrush" Value="#9D3542"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="BorderBrush" Value="Pink"/>
-                                <Setter Property="BorderThickness" Value="2"/>
-                                <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource ButtonBackgroundSelectedColor}"/>
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect Opacity="1" ShadowDepth="2" Color="{DynamicResource CButtonBackgroundMouseoverColor}" Direction="-111" BlurRadius="10"/>
-                                    </Setter.Value>
-                                </Setter>
+                                <Setter TargetName="NavPill" Property="Background" Value="#3D1C25"/>
+                                <Setter TargetName="NavPill" Property="BorderBrush" Value="#FF3C3C"/>
+                                <Setter TargetName="ActiveMarker" Property="Visibility" Value="Visible"/>
                             </Trigger>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}"/>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.4"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -17826,17 +17813,17 @@ $inputXML = @'
             <TextBlock Text="&#x26A0; Offline Mode - No Internet Connection" Foreground="White" FontWeight="Bold"
                 HorizontalAlignment="Center" FontSize="13" Background="Transparent"/>
         </Border>
-        <Grid Grid.Row="1" Background="{DynamicResource MainBackgroundColor}">
+        <Grid Grid.Row="1" Background="#16161B">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/> <!-- Navigation buttons -->
                 <ColumnDefinition Width="*"/> <!-- Search bar and buttons -->
             </Grid.ColumnDefinitions>
 
             <!-- Navigation Buttons Panel -->
-            <StackPanel Name="NavDockPanel" Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="5,5,10,5">
-                <StackPanel Name="NavLogoPanel" Orientation="Horizontal" HorizontalAlignment="Left" Background="{DynamicResource MainBackgroundColor}" SnapsToDevicePixels="True" Margin="10,0,20,0">
-                    <TextBlock Text="BERRY IT" FontFamily="Orbitron" FontSize="14" FontWeight="Bold" Foreground="#FF3C3C" VerticalAlignment="Center"/>
-                    <TextBlock Text=" | WINFORGE" FontFamily="Orbitron" FontSize="12" FontWeight="Bold" Foreground="{DynamicResource MainForegroundColor}" VerticalAlignment="Center"/>
+            <StackPanel Name="NavDockPanel" Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="12,8,15,8">
+                <StackPanel Name="NavLogoPanel" Orientation="Horizontal" HorizontalAlignment="Left" Background="#16161B" SnapsToDevicePixels="True" Margin="5,0,26,0">
+                    <TextBlock Text="BERRY IT" FontFamily="Orbitron" FontSize="16" FontWeight="Bold" Foreground="#FF3C3C" VerticalAlignment="Center"/>
+                    <TextBlock Text="  /  WINFORGE" FontFamily="Orbitron" FontSize="13" FontWeight="Bold" Foreground="#F4F4F4" VerticalAlignment="Center"/>
                 </StackPanel>
                 <ToggleButton Style="{StaticResource TabToggleButton}" Margin="0,0,5,0" Height="{DynamicResource TabButtonHeight}" Width="{DynamicResource TabButtonWidth}"
                     Background="{DynamicResource ButtonInstallBackgroundColor}" Foreground="white" FontWeight="Bold" Name="WPFTab1BT">
@@ -17850,7 +17837,7 @@ $inputXML = @'
                     Background="{DynamicResource ButtonTweaksBackgroundColor}" Foreground="{DynamicResource ButtonTweaksForegroundColor}" FontWeight="Bold" Name="WPFTab2BT">
                     <ToggleButton.Content>
                         <TextBlock FontSize="{DynamicResource TabButtonFontSize}" Background="Transparent" Foreground="{DynamicResource ButtonTweaksForegroundColor}">
-                            <Underline>T</Underline>weaks
+                            Optimise
                         </TextBlock>
                     </ToggleButton.Content>
                 </ToggleButton>
@@ -17858,7 +17845,7 @@ $inputXML = @'
                     Background="{DynamicResource ButtonConfigBackgroundColor}" Foreground="{DynamicResource ButtonConfigForegroundColor}" FontWeight="Bold" Name="WPFTab3BT">
                     <ToggleButton.Content>
                         <TextBlock FontSize="{DynamicResource TabButtonFontSize}" Background="Transparent" Foreground="{DynamicResource ButtonConfigForegroundColor}">
-                            <Underline>C</Underline>onfig
+                            Configure
                         </TextBlock>
                     </ToggleButton.Content>
                 </ToggleButton>
@@ -17866,7 +17853,7 @@ $inputXML = @'
                     Background="{DynamicResource ButtonUpdatesBackgroundColor}" Foreground="{DynamicResource ButtonUpdatesForegroundColor}" FontWeight="Bold" Name="WPFTab4BT">
                     <ToggleButton.Content>
                         <TextBlock FontSize="{DynamicResource TabButtonFontSize}" Background="Transparent" Foreground="{DynamicResource ButtonUpdatesForegroundColor}">
-                            <Underline>U</Underline>pdates
+                            Updates
                         </TextBlock>
                     </ToggleButton.Content>
                 </ToggleButton>
@@ -17874,7 +17861,7 @@ $inputXML = @'
                     Background="{DynamicResource ButtonWin11ISOBackgroundColor}" Foreground="{DynamicResource ButtonWin11ISOForegroundColor}" FontWeight="Bold" Name="WPFTab5BT">
                     <ToggleButton.Content>
                         <TextBlock FontSize="{DynamicResource TabButtonFontSize}" Background="Transparent" Foreground="{DynamicResource ButtonWin11ISOForegroundColor}">
-                            <Underline>W</Underline>in11 Creator
+                            ISO Studio
                         </TextBlock>
                     </ToggleButton.Content>
                 </ToggleButton>
