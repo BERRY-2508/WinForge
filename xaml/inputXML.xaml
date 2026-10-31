@@ -81,16 +81,32 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="AppEntryBorderStyle" TargetType="Border">
-        <Setter Property="BorderBrush" Value="Gray"/>
+        <!-- BERRY IT workspace controls: restrained cards and modern pill filters -->
+    <Style x:Key="BerryWorkspaceCard" TargetType="Border">
+        <Setter Property="Background" Value="#1C1D22"/>
+        <Setter Property="BorderBrush" Value="#38343C"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="18"/>
+        <Setter Property="Margin" Value="8"/>
+    </Style>
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="#202027"/>
+        <Setter Property="Foreground" Value="#F4F4F4"/>
+        <Setter Property="BorderBrush" Value="#54404A"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="9,5"/>
+    </Style>
+<Style x:Key="AppEntryBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#45343A"/>
         <Setter Property="BorderThickness" Value="{DynamicResource AppEntryBorderThickness}"/>
-        <Setter Property="CornerRadius" Value="5"/>
-        <Setter Property="Padding" Value="6,4"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="12,10"/>
         <Setter Property="Width" Value="{DynamicResource AppEntryWidth}"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="{DynamicResource AppEntryMargin}"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Background" Value="{DynamicResource AppInstallUnselectedColor}"/>
+        <Setter Property="Background" Value="#1D1D23"/>
     </Style>
     <Style x:Key="AppEntryCheckboxStyle" TargetType="CheckBox">
         <Setter Property="Background" Value="Transparent"/>
@@ -1342,7 +1358,7 @@
             </Grid>
         </Grid>
 
-        <TabControl Name="WPFTabNav" Background="Transparent" Width="Auto" Height="Auto" BorderBrush="Transparent" BorderThickness="0" Grid.Row="2" Grid.Column="0" Padding="-1">
+        <TabControl Name="WPFTabNav" Background="#141417" Width="Auto" Height="Auto" BorderBrush="Transparent" BorderThickness="0" Grid.Row="2" Grid.Column="0" Padding="12,8,12,12">
             <TabItem Header="Install" Visibility="Collapsed" Name="WPFTab1">
                 <Grid Background="Transparent" >
                     <Grid.RowDefinitions>
