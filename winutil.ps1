@@ -16870,7 +16870,7 @@ $inputXML = @'
         <Setter Property="Padding" Value="18"/>
         <Setter Property="Margin" Value="8"/>
     </Style>
-    <Style TargetType="TextBox">
+    <Style x:Key="BerryInputTextBox" TargetType="TextBox">
         <Setter Property="Background" Value="#202027"/>
         <Setter Property="Foreground" Value="#F4F4F4"/>
         <Setter Property="BorderBrush" Value="#54404A"/>
